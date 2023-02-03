@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #dee1e2;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header{
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.logo{
+    color: #333;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.group{
+    display: flex;    
+    align-items: center;    
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+header ul li{
+    list-style: none;
+}
+
+header ul li a{
+    position: relative;
+    text-decoration: none;
+    font-size: 1em;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+header ul li a::before{
+    content: ' ';
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+}
+
+header ul li a:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+ /* making the navbar Responsive */
+ .menuToggle{
+    position: relative;
+    display: none;
+}
+
+/* Homepage */
+.homepage{
+    position: relative;
+    background-image: url("/Navbar/close-up-hand-holding-pen-write.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+.home_title .title{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    min-width: 60vw ;
+}
+
+.home_btn{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw ;
+    place-content: center;
+}
+
+.home_btn button{
+    padding: 15px 50px;
+    border: none;
+    outline: none;
+    box-shadow: 10px 5px 5px  #8888;
+    background: #01fe87;
+    font-size: 17px;
+    color: #fff;
+    -webkit-text-stroke: 0.1vw #383d52;
+}
+
+.home_title h1{
+    position: relative;
+    letter-spacing: 3px;
+    font-size: 70px !important;
+    color: #fff;
+    -webkit-text-stroke: 0.1vw #383d52;
+    text-transform: uppercase;
+}
+
+.home_title h1::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #01fe87;
+    -webkit-text-stroke: 0vw #383d52;
+    border-right: 2px solid #01fe87;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate
+{
+    0%, 10%, 100%
+    {
+        width: 0;
+    }
+    70%, 90%
+    {
+        width: 100%;
+    }
+}
+
+
+/* Team */
+.ff-secondary {
+    font-family: 'Pacifico', cursive;
+}
+
+.team-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    height: calc(100% - 38px);
+    transition: .5s;
+}
+
+
+.team-item img {
+    transition: .5s;
+}
+
+.team_title{
+    -webkit-text-stroke: 0.1vw ;
+}
+
+.team-item:hover img {
+    transform: scale(1.1);
+}
+
+.team-item:hover {
+    height: 100%;
+}
+
+.team-item .btn {
+    border-radius: 38px 38px 0 0;
+}
+
+
+
+
+@media (max-width: 856px){
+    .menuToggle{
+        display: block;
+        font-size: 25px;
+        cursor: pointer;
+        transform: translateX(30px);
+        z-index: 10;
+    }
+
+    header .navigation{
+        position: absolute;
+        opacity: 0;
+        height: 100vh;
+        visibility: hidden;
+        left: 100%;
+    }
+
+    header{
+        box-shadow: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header.open .navigation{
+        top: 80px;
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+        height: calc(100vh - 80px);
+        padding: 40px;
+        z-index: 99999;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+        header.open .navigation li a{
+            font-size: 1.25em;
+        }
+
+}
